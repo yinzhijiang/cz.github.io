@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>JYZ 博客</title>
+  
+  <subtitle>JYZ BLOG</subtitle>
+  <link href="/cz.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-03-05T07:23:38.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>[object Object]</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github+hexo博客的搭建过程</title>
+    <link href="http://yoursite.com/2018/03/05/github-hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/03/05/github-hexo博客的搭建过程/</id>
+    <published>2018-03-05T07:05:54.000Z</published>
+    <updated>2018-03-05T07:23:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>首先在GitHub账户上建立自己的项目仓库（⚠️点击setting下拉至GitHub Pages ，将source改为master branch 保存之后上面就会出现一串的地址，点击就可以看到相应的web页面信息，这里为什么要改为master branch呢，是因为GitHub pages要以一个分支做基准，master是主分支）</p></li><li><p>在终端查看是否安装了git &amp; npm 命令 : git –version &amp; npm –version</p></li><li><p>新建文件夹blog， cd blog进入文件夹全局安装hexo 命令 npm install  hexo -g  ，检查是否安装成功 hexo-v</p></li><li><p>初始化blog文件夹。hexo init</p></li><li><p>安装组件npm install</p></li><li><p>hexo g</p></li><li><p>运行 hexo s 此时端口号是4000如果页面没有出来的话有可能是端口号被占用了，修改端口号的命令：hexo server -p 端口号</p></li><li><p>将Hexo与Github page联系起来，设置Git的user name和email（如果是第一次的话）</p><ol><li>cd 到 blog文件夹下，命令行 vi _config.yml，下滑至最后，修改deploy</li><li>执行生成静态页面。hexo generate   or  hexo g</li><li>执行配置页面。 hexo deploy   or  hexo d</li></ol><p>如报错 找不到git</p><p>执行 npm install hexo-deployer-git –save</p><p>再次执行</p><p>hexo g  </p><p>hexo d</p></li><li><p>更改主题的话去hexo选取自己喜欢的主题根据链接进入GitHub，有详细的步骤解说。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先在GitHub账户上建立自己的项目仓库（⚠️点击setting下拉至GitHub Pages ，将source改为master branch 保存之后上面就会出现一串的地址，点击就可以看到相应的web页面信息，这里为什么要改为master branch
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>axios</title>
+    <link href="http://yoursite.com/2018/01/18/axios/"/>
+    <id>http://yoursite.com/2018/01/18/axios/</id>
+    <published>2018-01-18T02:29:06.000Z</published>
+    <updated>2018-01-18T03:04:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="axios请求"><a href="#axios请求" class="headerlink" title="axios请求"></a>axios请求</h5><p>######单个URL请求数据</p><p>axios.get(url).then( res =&gt; {</p><p>​    //请求成功的数据返回res</p><p>}).catch( error ={</p><p>​    //请求失败返回error</p><p>})</p><h6 id="并发的当多个地址请求数据时，需要axios-all-迭代器-axios-spread-回调"><a href="#并发的当多个地址请求数据时，需要axios-all-迭代器-axios-spread-回调" class="headerlink" title="并发的当多个地址请求数据时，需要axios.all(迭代器) axios.spread(回调)"></a>并发的当多个地址请求数据时，需要axios.all(迭代器) axios.spread(回调)</h6><p>let url1 = axios.get(url1)</p><p>let url2 = axios.get(url2)</p><p>axios.all([url1, url2]).then(axios.spread(act, perms) =&gt; {</p><p>})</p><h6 id="axios配置"><a href="#axios配置" class="headerlink" title="axios配置"></a>axios配置</h6><p>// URL = ‘<a href="https://192.168.2.12/api/user?ID=12345/?limit=100" target="_blank" rel="noopener">https://192.168.2.12/api/user?ID=12345/?limit=100</a>‘</p><p>let url = ‘/user’</p><p>axios.get(url,{</p><p>​    baseURL: ‘<a href="https://192.168.2.12/api/" target="_blank" rel="noopener">https://192.168.2.12/api/</a>‘,</p><p>​    params: {</p><p>​        ID: 12345,</p><p>​        limit: 100</p><p>​    }</p><p>​    timeout: 1000,</p><p>})</p><p>.then( res =&gt; {</p><p>​    consoel.log(res)</p><p>})</p><p>.catch( error =&gt; {</p><p>​    console.log(error)</p><p>})</p><p>这里的url是相对地址，如果没有url的话，baseURL就会充当url</p><p>params是URL的一些参数</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;axios请求&quot;&gt;&lt;a href=&quot;#axios请求&quot; class=&quot;headerlink&quot; title=&quot;axios请求&quot;&gt;&lt;/a&gt;axios请求&lt;/h5&gt;&lt;p&gt;######单个URL请求数据&lt;/p&gt;
+&lt;p&gt;axios.get(url).then( res =&amp;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>something with openlayers</title>
+    <link href="http://yoursite.com/2018/01/11/something-with-openlayers/"/>
+    <id>http://yoursite.com/2018/01/11/something-with-openlayers/</id>
+    <published>2018-01-11T08:32:35.000Z</published>
+    <updated>2018-01-11T09:49:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="openlayers-禁止缩放的两种方式"><a href="#openlayers-禁止缩放的两种方式" class="headerlink" title="openlayers 禁止缩放的两种方式"></a>openlayers 禁止缩放的两种方式</h2><ol><li><p>var map = new ol.Map({</p><p>​    interactions: ol.interaction.defaults({mouseWheelZoom: false}),</p><p>})</p></li><li><p>var interactions = map.getInteractions();</p><p>for (let i=0; i&lt;interactions.getLength; i++) {</p><pre><code>let interaction = interactions.item[i]</code></pre><p>​    if(interaction instanceof ol.interaction.MouseWheelZoom){</p><p>​        map.removeInteraction(interaction);</p><p>​        break;</p><p>​    }</p><p>}</p></li><li><p>###由缩放可以扩展至openlayers地图的点击和双击</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;openlayers-禁止缩放的两种方式&quot;&gt;&lt;a href=&quot;#openlayers-禁止缩放的两种方式&quot; class=&quot;headerlink&quot; title=&quot;openlayers 禁止缩放的两种方式&quot;&gt;&lt;/a&gt;openlayers 禁止缩放的两种方式&lt;/h2&gt;&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>cz</title>
+    <link href="http://yoursite.com/2017/09/12/cz/"/>
+    <id>http://yoursite.com/2017/09/12/cz/</id>
+    <published>2017-09-12T14:33:26.000Z</published>
+    <updated>2017-09-12T14:33:26.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/09/12/hello-world/"/>
+    <id>http://yoursite.com/2017/09/12/hello-world/</id>
+    <published>2017-09-12T14:24:19.000Z</published>
+    <updated>2017-09-12T14:24:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
