@@ -6,7 +6,7 @@
   <link href="/cz.github.io/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-05T07:23:38.000Z</updated>
+  <updated>2018-03-06T06:16:12.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于linux和mac的一些命令</title>
+    <link href="http://yoursite.com/2018/03/06/%E5%85%B3%E4%BA%8Elinux%E5%92%8Cmac%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/03/06/关于linux和mac的一些命令/</id>
+    <published>2018-03-06T02:15:26.000Z</published>
+    <updated>2018-03-06T06:16:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><ol><li><p>列出文件</p><p>ls ／参数 目录名</p><p>参数-w显示中文，-l详细信息，-a包含隐藏文件</p></li><li><p>转换目录</p><p>cd——进入路径(绝对路径前带／，相对路径不带／,按tab健可以补全路径或给予提示，注意区分大小写)</p><p>pwd——显示当前路径</p></li><li><p>建立新目录</p><p>mkdir 目录名</p></li><li><p>拷贝文件</p><p>cp 参数 原文件 目标文件</p><p>cp -R</p><p>参数R表示对目录进行递归操作，kext在图形界面下看起来是个文件，实际上是个文件夹。</p></li><li><p>删除文件</p><p>rm 参数 文件</p><p>rm -rf/文件路径</p><p>参数－rf 表示递归和强制，千万要小心使用，如果执行了 rm -rf / 你的系统就全没了</p></li><li><p>第一次用vi命令（命令行模式和插入模式）： </p><ol><li>在默认的”命令行模式”下按 i 进入插入模式 </li><li>在非指令模式下按 ESC 返回指令模式 </li><li>在”指令模式”下输入:<br>:w保存当前文件<br>:q 退出编辑,如果文件为保存需要用强制模式<br>:q!强制退出不保存修改<br>:wq组合指令, 保存并退出 </li><li>在”指令模式”下移动:<br>h左<br>j下<br>k上<br>l右 </li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;基本命令&quot;&gt;&lt;a href=&quot;#基本命令&quot; class=&quot;headerlink&quot; title=&quot;基本命令&quot;&gt;&lt;/a&gt;基本命令&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;列出文件&lt;/p&gt;
+&lt;p&gt;ls ／参数 目录名&lt;/p&gt;
+&lt;p&gt;参数-w显示中文，-l详细信息，-a包含隐藏文
+      
+    
+    </summary>
+    
+    
+      <category term="Linux &amp; Mac" scheme="http://yoursite.com/tags/Linux-Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>github+hexo博客的搭建过程</title>
@@ -43,16 +69,16 @@
     <link href="http://yoursite.com/2018/01/18/axios/"/>
     <id>http://yoursite.com/2018/01/18/axios/</id>
     <published>2018-01-18T02:29:06.000Z</published>
-    <updated>2018-01-18T03:04:34.000Z</updated>
+    <updated>2018-03-05T07:33:59.000Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="axios请求"><a href="#axios请求" class="headerlink" title="axios请求"></a>axios请求</h5><p>######单个URL请求数据</p><p>axios.get(url).then( res =&gt; {</p><p>​    //请求成功的数据返回res</p><p>}).catch( error ={</p><p>​    //请求失败返回error</p><p>})</p><h6 id="并发的当多个地址请求数据时，需要axios-all-迭代器-axios-spread-回调"><a href="#并发的当多个地址请求数据时，需要axios-all-迭代器-axios-spread-回调" class="headerlink" title="并发的当多个地址请求数据时，需要axios.all(迭代器) axios.spread(回调)"></a>并发的当多个地址请求数据时，需要axios.all(迭代器) axios.spread(回调)</h6><p>let url1 = axios.get(url1)</p><p>let url2 = axios.get(url2)</p><p>axios.all([url1, url2]).then(axios.spread(act, perms) =&gt; {</p><p>})</p><h6 id="axios配置"><a href="#axios配置" class="headerlink" title="axios配置"></a>axios配置</h6><p>// URL = ‘<a href="https://192.168.2.12/api/user?ID=12345/?limit=100" target="_blank" rel="noopener">https://192.168.2.12/api/user?ID=12345/?limit=100</a>‘</p><p>let url = ‘/user’</p><p>axios.get(url,{</p><p>​    baseURL: ‘<a href="https://192.168.2.12/api/" target="_blank" rel="noopener">https://192.168.2.12/api/</a>‘,</p><p>​    params: {</p><p>​        ID: 12345,</p><p>​        limit: 100</p><p>​    }</p><p>​    timeout: 1000,</p><p>})</p><p>.then( res =&gt; {</p><p>​    consoel.log(res)</p><p>})</p><p>.catch( error =&gt; {</p><p>​    console.log(error)</p><p>})</p><p>这里的url是相对地址，如果没有url的话，baseURL就会充当url</p><p>params是URL的一些参数</p>]]></content>
+    <content type="html"><![CDATA[<h5 id="axios请求"><a href="#axios请求" class="headerlink" title="axios请求"></a>axios请求</h5><p>####单个URL请求数据</p><p>axios.get(url).then( res =&gt; {</p><p>​    //请求成功的数据返回res</p><p>}).catch( error ={</p><p>​    //请求失败返回error</p><p>})</p><h6 id="并发的当多个地址请求数据时，需要axios-all-迭代器-axios-spread-回调"><a href="#并发的当多个地址请求数据时，需要axios-all-迭代器-axios-spread-回调" class="headerlink" title="并发的当多个地址请求数据时，需要axios.all(迭代器) axios.spread(回调)"></a>并发的当多个地址请求数据时，需要axios.all(迭代器) axios.spread(回调)</h6><p>let url1 = axios.get(url1)</p><p>let url2 = axios.get(url2)</p><p>axios.all([url1, url2]).then(axios.spread(act, perms) =&gt; {</p><p>})</p><h6 id="axios配置"><a href="#axios配置" class="headerlink" title="axios配置"></a>axios配置</h6><p>// URL = ‘<a href="https://192.168.2.12/api/user?ID=12345/?limit=100" target="_blank" rel="noopener">https://192.168.2.12/api/user?ID=12345/?limit=100</a>‘</p><p>let url = ‘/user’</p><p>axios.get(url,{</p><p>​    baseURL: ‘<a href="https://192.168.2.12/api/" target="_blank" rel="noopener">https://192.168.2.12/api/</a>‘,</p><p>​    params: {</p><p>​        ID: 12345,</p><p>​        limit: 100</p><p>​    }</p><p>​    timeout: 1000,</p><p>})</p><p>.then( res =&gt; {</p><p>​    consoel.log(res)</p><p>})</p><p>.catch( error =&gt; {</p><p>​    console.log(error)</p><p>})</p><p>这里的url是相对地址，如果没有url的话，baseURL就会充当url</p><p>params是URL的一些参数</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h5 id=&quot;axios请求&quot;&gt;&lt;a href=&quot;#axios请求&quot; class=&quot;headerlink&quot; title=&quot;axios请求&quot;&gt;&lt;/a&gt;axios请求&lt;/h5&gt;&lt;p&gt;######单个URL请求数据&lt;/p&gt;
-&lt;p&gt;axios.get(url).then( res =&amp;
+        &lt;h5 id=&quot;axios请求&quot;&gt;&lt;a href=&quot;#axios请求&quot; class=&quot;headerlink&quot; title=&quot;axios请求&quot;&gt;&lt;/a&gt;axios请求&lt;/h5&gt;&lt;p&gt;####单个URL请求数据&lt;/p&gt;
+&lt;p&gt;axios.get(url).then( res =&amp;gt
       
     
     </summary>
